@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Knight's Pathway Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="tour.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1 class="center">Knight's Pathway Tracker</h1>
+    <p>
+      <b>Tip:</b> An <i>n</i> * <i>n</i> chessboard has a <b>closed knight's tour</b> iff <i>n</i> ≥
+      6 is even.
+    </p>
+    <p>
+      <b>Note:</b> The pieces of <a href="https://en.wikipedia.org/wiki/Chess">chess</a> are placed
+      inside a square, while the pieces of
+      <a href="https://en.wikipedia.org/wiki/Xiangqi">Chinese chess</a> are placed on the
+      intersections of the lines.
+    </p>
+
+    <form class="pure-form">
+      <p>
+        <label for="boardSize">Board size:</label>
+        <input
+          type="number"
+          id="boardSize"
+          value="14"
+          min="6"
+          step="2"
+          required
+          onkeyup="drawEmptyBoard()"
+          onchange="drawEmptyBoard()"
+        />
+        (Board size should be an even number).
+      </p>
+      <p>
+        <label for="strokeTime">Time of a stroke (ms):</label>
+        <input type="number" id="strokeTime" value="50" min="0" required />
+      </p>
+      <p class="center">
+        <input type="button" class="pure-button" onclick="stopDraw()" value="Stop" />
+        <input
+          type="button"
+          class="pure-button pure-button-primary"
+          onclick="startDraw()"
+          value="Start"
+        />
+      </p>
+    </form>
+
+    <div class="center">
+      <canvas id="canvas" width="500" height="500">Canvas not supported</canvas>
+    </div>
+  </body>
+</html>
